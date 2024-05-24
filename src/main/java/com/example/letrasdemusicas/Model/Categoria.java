@@ -1,4 +1,4 @@
-package Model;
+package com.example.letrasdemusicas.Model;
 
 public class Categoria {
 

@@ -6,28 +6,30 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src/main/java/Login.java">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Login">
    <children>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="381.0" prefWidth="570.0" style="-fx-background-color: pink;">
+      <Pane layoutX="-3.0" prefHeight="400.0" prefWidth="607.0" style="-fx-background-color: pink;">
          <children>
-            <Label layoutX="405.0" layoutY="82.0" prefHeight="21.0" prefWidth="47.0" text="LOGIN">
+            <Label layoutX="354.0" layoutY="82.0" prefHeight="21.0" prefWidth="176.0" text="Olá, seja bem-vindo!">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="337.0" layoutY="124.0" text="Nome de usuário">
+            <Label layoutX="354.0" layoutY="131.0" text="Usuário">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="337.0" layoutY="194.0" text="Senha">
+            <Label layoutX="354.0" layoutY="200.0" text="Senha">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font></Label>
             <PasswordField fx:id="senha" layoutX="354.0" layoutY="220.0" />
             <TextField fx:id="user" layoutX="354.0" layoutY="153.0" />
-            <Button fx:id="login" layoutX="405.0" layoutY="261.0" mnemonicParsing="false" onAction="#loginAction" text="Login" />
+            <Button fx:id="login" layoutX="405.0" layoutY="260.0" mnemonicParsing="false" onAction="#loginAction" text="Login" />
+            <VBox layoutX="3.0" layoutY="1.0" prefHeight="400.0" prefWidth="270.0" style="-fx-background-color: gray;" />
          </children>
       </Pane>
    </children>
