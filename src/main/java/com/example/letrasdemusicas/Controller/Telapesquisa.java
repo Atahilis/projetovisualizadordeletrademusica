@@ -14,10 +14,7 @@ import javafx.scene.shape.Rectangle;
 public class Telapesquisa {
 
     @FXML
-    private TextField botaoBusca;
-
-    @FXML
-    private TitledPane botaoExplorar;
+    private TitledPane botaoBuscar;
 
     @FXML
     private TitledPane botaoGeneros;

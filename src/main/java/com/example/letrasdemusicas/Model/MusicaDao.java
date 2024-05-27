@@ -54,7 +54,7 @@ public class MusicaDao {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
-            String urlPesquisa = URL_BASE + "/search?q=" + nomeMusica.replace("", "+") + "&type=track";
+            String urlPesquisa = URL_BASE + "/search?q=" + nomeMusica.replace(" ", "+") + "&type=track";
        HttpGet get = new HttpGet(urlPesquisa);
        get.setHeader("Authorization", "Bearer " + tokenAcesso);
 

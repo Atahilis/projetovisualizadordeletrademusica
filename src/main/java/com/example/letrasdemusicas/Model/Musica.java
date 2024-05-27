@@ -2,13 +2,13 @@ package com.example.letrasdemusicas.Model;
 
 public class Musica {
    private String titulo;
-   private int id;
+   private String id;
    private String genero;
    private String compositor;
    private String letra;
    private String artista;
 
-    public Musica(String titulo, int id, String genero, String compositor, String letra, String artista) {
+    public Musica(String titulo, String id, String genero, String compositor, String letra, String artista) {
         this.titulo = titulo;
         this.id = id;
         this.genero = genero;
@@ -18,7 +18,11 @@ public class Musica {
         
     }
 
-    public Musica(String nome, String artista, String id) {
+    public Musica(String titulo, String artista, String id) {
+        this.titulo = titulo;
+        this.artista = artista;
+        this.id = id;
+
 
     }
 
