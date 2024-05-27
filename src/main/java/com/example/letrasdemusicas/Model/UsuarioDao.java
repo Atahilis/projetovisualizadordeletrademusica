@@ -8,7 +8,7 @@ public class UsuarioDao {
 
     public void salvar(Usuario usuario) throws IOException {
 
-        FileWriter writer = new FileWriter("usuarios.txt", true);
+        FileWriter writer = new FileWriter("src/main/resources/com/example/letrasdemusicas/view/usuarios.txt", true);
         writer.write(usuario.getNome() + "," + usuario.getSenha() + System.lineSeparator());
 
         writer.close();
@@ -16,7 +16,7 @@ public class UsuarioDao {
 
     public static Usuario ler(String nome, String senha) throws IOException {
 
-        BufferedReader reader = new BufferedReader(new FileReader("usuarios.txt")); {
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/com/example/letrasdemusicas/view/usuarios.txt")); {
         String linha;
         while ((linha = reader.readLine()) != null){
             String[] usuarioSeparado = linha.split(",");

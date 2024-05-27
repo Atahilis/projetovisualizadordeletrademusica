@@ -17,6 +17,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, ParseException {
 
+
         MusicaDao musicaDao = new MusicaDao();
         List<Musica> musicas = musicaDao.pesquisarMusica("perfect");
         musicas.forEach(System.out::println);
