@@ -36,6 +36,7 @@ public class MusicaDao {
             parametros.add(new BasicNameValuePair("client_id", CLIENT_ID));
             parametros.add(new BasicNameValuePair("client_secret", SECRET_CLIENTE));
 
+
             post.setEntity(new UrlEncodedFormEntity(parametros));
 
             try (CloseableHttpResponse response = httpClient.execute(post)) {
@@ -54,7 +55,8 @@ public class MusicaDao {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
-            String urlPesquisa = URL_BASE + "/search?q=" + nomeMusica.replace(" ", "+") + "&type=track";
+            String urlPesquisa = URL_BASE + "/search?q=" + nomeMusica.replace(" " +
+                    "", "+") + "&type=track";
        HttpGet get = new HttpGet(urlPesquisa);
        get.setHeader("Authorization", "Bearer " + tokenAcesso);
 

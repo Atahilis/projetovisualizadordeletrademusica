@@ -6,6 +6,9 @@ import java.nio.Buffer;
 
 public class UsuarioDao {
 
+
+
+
     public void salvar(Usuario usuario) throws IOException {
 
         FileWriter writer = new FileWriter("src/main/resources/com/example/letrasdemusicas/view/usuarios.txt", true);

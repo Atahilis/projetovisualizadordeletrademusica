@@ -1,7 +1,9 @@
 package com.example.letrasdemusicas.Model;
-//comentario teste!!!!
 
 
+/**
+ * Representa uma faixa de música com detalhes como título, id, gênero, compositor, letra e artista.
+ */
 public class Musica {
    private String titulo;
    private String id;
@@ -9,6 +11,7 @@ public class Musica {
    private String compositor;
    private String letra;
    private String artista;
+
 
     public Musica(String titulo, String id, String genero, String compositor, String letra, String artista) {
         this.titulo = titulo;

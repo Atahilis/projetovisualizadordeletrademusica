@@ -7,6 +7,7 @@
 <?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
@@ -15,13 +16,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.MeshView?>
 <?import javafx.scene.shape.Polygon?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
 <GridPane fx:id="painel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Telapesquisa">
     <columnConstraints>
@@ -102,156 +98,7 @@
             </tooltip>
         </ExpansionPanelContainer>
         <MeshView GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <GridPane fx:id="painelretangulos" prefHeight="250.0" prefWidth="436.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="215.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="15.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="204.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Rectangle fx:id="retangulo1" arcHeight="5.0" arcWidth="5.0" height="38.0" stroke="BLACK" strokeType="INSIDE" width="219.0">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.515999972820282" opacity="0.8100000023841858" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9411764740943909" green="0.545098066329956" blue="0.6823529601097107" opacity="0.27000001072883606" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Rectangle fx:id="retangulo4" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="228.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="199.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="0.919431279620853" startX="0.2985781990521327" startY="0.1895734597156398">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.7799999713897705" opacity="0.16412214934825897" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9200000166893005" blue="0.3373333215713501" opacity="0.7251908183097839" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Rectangle fx:id="retangulo7" arcHeight="5.0" arcWidth="5.0" fill="#eb0056b2" height="37.0" layoutX="10.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="218.0" GridPane.rowIndex="3" />
-                <Rectangle fx:id="retangulo8" arcHeight="5.0" arcWidth="5.0" fill="#eb00569a" height="37.0" layoutX="10.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="197.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <Rectangle fx:id="retangulo3" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="10.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="219.0" GridPane.rowIndex="1">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.515999972820282" opacity="0.8100000023841858" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9411764740943909" green="0.545098066329956" blue="0.6823529601097107" opacity="0.27000001072883606" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Rectangle fx:id="retangulo5" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="10.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="219.0" GridPane.rowIndex="2">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.515999972820282" opacity="0.8100000023841858" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9411764740943909" green="0.545098066329956" blue="0.6823529601097107" opacity="0.27000001072883606" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Rectangle fx:id="retangulo6" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="238.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="199.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="0.919431279620853" startX="0.2985781990521327" startY="0.1895734597156398">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.765333354473114" opacity="0.2786259651184082" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9200000166893005" blue="0.3373333215713501" opacity="0.7251908183097839" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Label fx:id="textoGenero" prefHeight="23.0" prefWidth="170.0" text="                 GÊNERO" textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Rectangle fx:id="retangulo2" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="241.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="199.0" GridPane.columnIndex="2">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="0.919431279620853" startX="0.2985781990521327" startY="0.1895734597156398">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" green="0.11999999731779099" blue="0.7799999713897705" opacity="0.16412214934825897" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9200000166893005" blue="0.3373333215713501" opacity="0.7251908183097839" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Label fx:id="textoAutor" layoutX="10.0" layoutY="23.0" prefHeight="23.0" prefWidth="170.0" text="                  AUTOR" textAlignment="CENTER" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Label fx:id="textoNacionais" layoutX="10.0" layoutY="23.0" prefHeight="23.0" prefWidth="170.0" text="           NACIONAIS" textAlignment="CENTER" GridPane.columnIndex="2">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Label fx:id="textoCantor" layoutX="241.0" layoutY="23.0" prefHeight="23.0" prefWidth="170.0" text="               CANTOR" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Label fx:id="textoInternacionais" layoutX="241.0" layoutY="74.0" prefHeight="25.0" prefWidth="186.0" text="         INTERNACIONAIS" textAlignment="CENTER" GridPane.rowIndex="2">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-            </children>
-        </GridPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="resultados" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </children>
 </GridPane>
