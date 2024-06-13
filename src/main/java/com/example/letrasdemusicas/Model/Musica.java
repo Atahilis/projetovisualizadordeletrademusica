@@ -1,64 +1,87 @@
 package com.example.letrasdemusicas.Model;
 
+import java.util.List;
 
-/**
- * Representa uma faixa de música com detalhes como título, id, gênero, compositor, letra e artista.
- */
 public class Musica {
-   private String titulo;
-   private String id;
-   private String genero;
-   private String compositor;
-   private String letra;
-   private String artista;
+    private String titulo;
+    private String id;
+    private String letra;
+    private List<String> artista;
 
-
-    public Musica(String titulo, String id, String genero, String compositor, String letra, String artista) {
-        this.titulo = titulo;
-        this.id = id;
-        this.genero = genero;
-        this.compositor = compositor;
-        this.letra = letra;
-        this.artista = artista;
-        
+    public Musica(String nome, String artista, String id) {
     }
 
-    public Musica(String titulo, String artista, String id) {
-        this.titulo = titulo;
-        this.artista = artista;
-        this.id = id;
-
-
+    public String getTitulo() {
+        return titulo;
     }
 
     @Override
     public String toString() {
         return "Musica{" +
                 "titulo='" + titulo + '\'' +
-                ", id=" + id +
-                ", genero='" + genero + '\'' +
-                ", compositor='" + compositor + '\'' +
+                ", id='" + id + '\'' +
                 ", letra='" + letra + '\'' +
-                ", artista='" + artista + '\'' +
+                ", artista=" + artista +
+                ", musicaLink='" + musicaLink + '\'' +
+                ", capaLink='" + capaLink + '\'' +
                 '}';
-    }
-
-    
-    public String getArtista() {
-        return artista;
-    }
-
-    public void setArtista(String artista) {
-        this.artista = artista;
-    }
-
-
-    public String getTitulo() {
-        return titulo;
     }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-}
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLetra() {
+        return letra;
+    }
+
+    public void setLetra(String letra) {
+        this.letra = letra;
+    }
+
+    public List<String> getArtista() {
+        return artista;
+    }
+
+    public void setArtista(List<String> artista) {
+        this.artista = artista;
+    }
+
+    public String getCapaLink() {
+        return capaLink;
+    }
+
+    public void setCapaLink(String capaLink) {
+        this.capaLink = capaLink;
+    }
+
+    public String getMusicaLink() {
+        return musicaLink;
+    }
+
+    public void setMusicaLink(String musicaLink) {
+        this.musicaLink = musicaLink;
+    }
+
+    private String musicaLink;
+
+    public Musica(String titulo, String id, String letra, List<String> artista, String musicaLink, String capaLink) {
+        this.titulo = titulo;
+        this.id = id;
+        this.letra = letra;
+        this.artista = artista;
+        this.musicaLink = musicaLink;
+        this.capaLink = capaLink;
+    }
+
+    private String capaLink;
+
+}   
