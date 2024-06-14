@@ -18,12 +18,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException, ParseException {
 
 
-
-
-
-        MusicaDao musicaDao = new MusicaDao();
-        List<Musica> musicas = musicaDao.pesquisarMusica("perfect");
-        musicas.forEach(System.out::println);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/letrasdemusicas/view/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Bem vindo!");
