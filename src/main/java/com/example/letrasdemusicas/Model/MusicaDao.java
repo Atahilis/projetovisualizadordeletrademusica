@@ -11,11 +11,15 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Closeable;
 import java.io.IOException;
 import org.apache.hc.core5.http.ParseException;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,14 +53,41 @@ public class MusicaDao {
         }
     }
 
+     public void pegarLetra(Musica musica) throws IOException, ParseException{
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()){
+         final String URL_LYRICS_OVH = "https://api.lyrics.ovh/v1/";
+
+         String urlPesquisa = URL_LYRICS_OVH + URLEncoder.encode(musica.getArtista().getFirst(), StandardCharsets.UTF_8)
+         + "/" + URLEncoder.encode(musica.getTitulo(), StandardCharsets.UTF_8);
+
+         HttpGet get = new HttpGet(urlPesquisa);
+
+         try (CloseableHttpResponse response = httpClient.execute(get)){
+             String corpoResponse = EntityUtils.toString(response.getEntity());
+
+             JSONObject resultadoPesquisa = new JSONObject(corpoResponse);
+
+             try{
+                 String letra = resultadoPesquisa.getString("lyrics");
+                 musica.setLetra(letra);
+
+             } catch (JSONException e){
+
+                 musica.setLetra("Não foi possivel encontrar a letra dessa música");
+             }
+         }
+        }
+     }
+
+
+
     public List<Musica> pesquisarMusica(String nomeMusica) throws IOException, ParseException {
         pegarToken();
         List<Musica> listaMusicas = new ArrayList<>();
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
-            String urlPesquisa = URL_BASE + "/search?q=" + nomeMusica.replace(" " +
-                    "", "+") + "&type=track";
+            String urlPesquisa = URL_BASE + "/search?q=" + URLEncoder.encode(nomeMusica, StandardCharsets.UTF_8) + "&type=tracks&limit=15";
        HttpGet get = new HttpGet(urlPesquisa);
        get.setHeader("Authorization", "Bearer " + tokenAcesso);
 
