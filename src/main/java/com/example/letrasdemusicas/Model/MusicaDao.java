@@ -30,6 +30,14 @@ public class MusicaDao {
     private final String TOKEN_URL = "https://accounts.spotify.com/api/token";
     private String tokenAcesso;
 
+    public MusicaDao(){
+        try {
+            pegarToken();
+        } catch (IOException | ParseException e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+
     private void pegarToken() throws IOException, ParseException {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpPost post = new HttpPost(TOKEN_URL);
@@ -82,12 +90,12 @@ public class MusicaDao {
 
 
     public List<Musica> pesquisarMusica(String nomeMusica) throws IOException, ParseException {
-        pegarToken();
+
         List<Musica> listaMusicas = new ArrayList<>();
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
-            String urlPesquisa = URL_BASE + "/search?q=" + URLEncoder.encode(nomeMusica, StandardCharsets.UTF_8) + "&type=tracks&limit=15";
+            String urlPesquisa = URL_BASE + "/search?q=" + URLEncoder.encode(nomeMusica, StandardCharsets.UTF_8) + "&type=track&limit=15";
        HttpGet get = new HttpGet(urlPesquisa);
        get.setHeader("Authorization", "Bearer " + tokenAcesso);
 
@@ -101,12 +109,20 @@ public class MusicaDao {
               JSONObject musica = tracks.getJSONObject(i);
               String id = musica.getString("id");
               String nome = musica.getString("name");
-              String artista = musica.getJSONArray("artists").getJSONObject(0).getString("name");
-              listaMusicas.add(new Musica(nome, artista, id));
 
+              String musicalink = musica.getJSONObject("external_urls").getString("spotify");
+
+              String capalink = musica.getJSONObject("album").getJSONArray("images").getJSONObject(2).getString("url");
+
+           List<String>artista = new ArrayList<>();
+           for (int j = 0; j < musica.getJSONArray("artists").length(); j++) {
+               artista.add(musica.getJSONArray("artists").getJSONObject(j).getString("name"));
+           }
+               listaMusicas.add(new Musica(nome, id, null, artista, musicalink, capalink));
            }
           }
         }
+
         return listaMusicas;
     }
 }
