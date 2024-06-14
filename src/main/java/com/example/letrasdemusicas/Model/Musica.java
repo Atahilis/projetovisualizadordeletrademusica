@@ -1,33 +1,31 @@
 package com.example.letrasdemusicas.Model;
 
+import java.util.Collections;
+import java.util.List;
 
-/**
- * Representa uma faixa de música com detalhes como título, id, gênero, compositor, letra e artista.
- */
+
 public class Musica {
    private String titulo;
    private String id;
    private String genero;
-   private String compositor;
    private String letra;
-   private String artista;
+   private  List<String> artista;
+   private String musicalink;
+   private String capaLink;
 
 
-    public Musica(String titulo, String id, String genero, String compositor, String letra, String artista) {
+
+    public Musica(String titulo, String id, String genero, String letra, String artista, String musicalink, String capaLink) {
         this.titulo = titulo;
+        this.capaLink = capaLink;
         this.id = id;
         this.genero = genero;
-        this.compositor = compositor;
+        this.musicalink = musicalink;
         this.letra = letra;
-        this.artista = artista;
-        
+        this.artista = Collections.singletonList(artista);
     }
 
-    public Musica(String titulo, String artista, String id) {
-        this.titulo = titulo;
-        this.artista = artista;
-        this.id = id;
-
+    public Musica(String nome, String artista, String id) {
 
     }
 
@@ -35,23 +33,46 @@ public class Musica {
     public String toString() {
         return "Musica{" +
                 "titulo='" + titulo + '\'' +
-                ", id=" + id +
+                ", id='" + id + '\'' +
                 ", genero='" + genero + '\'' +
-                ", compositor='" + compositor + '\'' +
                 ", letra='" + letra + '\'' +
-                ", artista='" + artista + '\'' +
+                ", artista=" + artista +
+                ", musicalink='" + musicalink + '\'' +
+                ", capaLink='" + capaLink + '\'' +
                 '}';
     }
 
-    
-    public String getArtista() {
+    public String getCapaLink() {
+        return capaLink;
+    }
+
+    public void setCapaLink(String capaLink) {
+        this.capaLink = capaLink;
+    }
+
+    public String getMusicalink() {
+        return musicalink;
+    }
+
+    public void setMusicalink(String musicalink) {
+        this.musicalink = musicalink;
+    }
+
+    public List<String> getArtista() {
         return artista;
     }
 
-    public void setArtista(String artista) {
+    public void setArtista(List<String> artista) {
         this.artista = artista;
     }
 
+    public String getLetra() {
+        return letra;
+    }
+
+    public void setLetra(String letra) {
+        this.letra = letra;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -61,4 +82,19 @@ public class Musica {
         this.titulo = titulo;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 }

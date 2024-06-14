@@ -15,7 +15,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Cadastro {
+public class
+Cadastro {
 
     @FXML
     private TextField botaoNome;
