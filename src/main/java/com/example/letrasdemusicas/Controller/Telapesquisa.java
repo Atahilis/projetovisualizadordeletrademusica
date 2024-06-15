@@ -1,89 +1,108 @@
 package com.example.letrasdemusicas.Controller;
 
-import com.gluonhq.charm.glisten.control.Avatar;
-import com.gluonhq.charm.glisten.control.ExpansionPanel.CollapsedPanel;
-import com.gluonhq.charm.glisten.control.ExpansionPanelContainer;
-import com.gluonhq.charm.glisten.control.TextField;
+import com.example.letrasdemusicas.Model.Musica;
+import com.example.letrasdemusicas.Model.MusicaDao;
+import com.jfoenix.controls.JFXButton;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TitledPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import org.apache.hc.core5.http.ParseException;
 
 public class Telapesquisa {
 
-    @FXML
-    private TitledPane botaoBuscar;
 
     @FXML
-    private TitledPane botaoGeneros;
+    private ResourceBundle resources;
 
     @FXML
-    private TitledPane botaoInicio;
+    private URL location;
 
     @FXML
-    private TitledPane botaoSugestoes;
+    private ScrollBar ScrollBar;
 
     @FXML
-    private Avatar moldura;
+    private TextField barraPesquisa;
 
     @FXML
-    private GridPane painel;
+    private JFXButton buscar;
 
     @FXML
-    private ExpansionPanelContainer painel2;
+    private ListView<Musica> listaDeMusicas;
 
     @FXML
-    private CollapsedPanel painelIlustrativo;
+    void barraPesquisaAction(ActionEvent event) {
+
+
+    }
 
     @FXML
-    private GridPane painelretangulos;
+    void buscarAction(ActionEvent event) {
+        String musicaPesquisada = barraPesquisa.getText();
+
+        MusicaDao musicaDao = new MusicaDao();
+
+        try{
+
+            List<Musica> musicasRetornadas = musicaDao.pesquisarMusica(musicaPesquisada);
+
+            ObservableList<Musica> listaMusicas = FXCollections.observableArrayList(musicasRetornadas);
+
+            listaDeMusicas.setItems(listaMusicas);
+
+
+        } catch (IOException | ParseException e) {
+            System.out.println("Erro ao pesquisar música");
+
+        }
+
+
+    }
 
     @FXML
-    private Rectangle retangulo1;
+    void clicar(MouseEvent event) {
+        Musica musicaSelecionada = listaDeMusicas.getFocusModel().getFocusedItem();
+
+        try{
+            new MusicaDao().pegarLetra(musicaSelecionada);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/TelaLetra.fxml"));
+            Parent root = loader.load();
+
+            TelaLetra telaLetra = loader.getController();
+            telaLetra.iniciar(musicaSelecionada);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+
+        } catch ( IOException | ParseException e){
+            System.out.println("Erro ao buscar letra");
+        }
+    }
 
     @FXML
-    private Rectangle retangulo2;
-
-    @FXML
-    private Rectangle retangulo3;
-
-    @FXML
-    private Rectangle retangulo4;
-
-    @FXML
-    private Rectangle retangulo5;
-
-    @FXML
-    private Rectangle retangulo6;
-
-    @FXML
-    private Rectangle retangulo7;
-
-    @FXML
-    private Rectangle retangulo8;
-
-    @FXML
-    private Label textoAutor;
-
-    @FXML
-    private Label textoBusca;
-
-    @FXML
-    private Label textoCantor;
-
-    @FXML
-    private Label textoGenero;
-
-    @FXML
-    private Label textoInternacionais;
-
-    @FXML
-    private Label textoNacionais;
-
-    @FXML
-    void botaoBuscaAcao(MouseEvent event) {
+    void initialize() {
+        assert ScrollBar != null : "fx:id=\"ScrollBar\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
+        assert barraPesquisa != null : "fx:id=\"barraPesquisa\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
+        assert buscar != null : "fx:id=\"buscar\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
+        assert listaDeMusicas != null : "fx:id=\"listaDeMusicas\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
 
     }
 

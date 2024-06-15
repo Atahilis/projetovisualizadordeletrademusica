@@ -95,7 +95,7 @@ public class MusicaDao {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
-            String urlPesquisa = URL_BASE + "/search?q=" + URLEncoder.encode(nomeMusica, StandardCharsets.UTF_8) + "&type=track&limit=15";
+            String urlPesquisa = URL_BASE + "/search?q=" + URLEncoder.encode(nomeMusica, StandardCharsets.UTF_8) + "&type=track&limit=25";
        HttpGet get = new HttpGet(urlPesquisa);
        get.setHeader("Authorization", "Bearer " + tokenAcesso);
 

@@ -29,14 +29,11 @@ public class Musica {
 
     @Override
     public String toString() {
-        return "Musica{" +
-                "titulo='" + titulo + '\'' +
-                ", id='" + id + '\'' +
-                ", letra='" + letra + '\'' +
-                ", artista=" + artista +
-                ", musicalink='" + musicalink + '\'' +
-                ", capaLink='" + capaLink + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Musica{")
+                .append("\n  titulo='").append(titulo).append('\'')
+                .append(",\n  artista=").append(artista);
+        return sb.toString();
     }
 
     public String getCapaLink() {
