@@ -3,12 +3,6 @@ package com.example.letrasdemusicas.Controller;
 import com.example.letrasdemusicas.Model.Musica;
 import com.example.letrasdemusicas.Model.MusicaDao;
 import com.jfoenix.controls.JFXButton;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,11 +12,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.hc.core5.http.ParseException;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class Telapesquisa {
 
@@ -32,9 +30,6 @@ public class Telapesquisa {
 
     @FXML
     private URL location;
-
-    @FXML
-    private ScrollBar ScrollBar;
 
     @FXML
     private TextField barraPesquisa;
@@ -81,10 +76,10 @@ public class Telapesquisa {
         try{
             new MusicaDao().pegarLetra(musicaSelecionada);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/TelaLetra.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/telaLetra.fxml"));
             Parent root = loader.load();
 
-            TelaLetra telaLetra = loader.getController();
+            telaLetra telaLetra = loader.getController();
             telaLetra.iniciar(musicaSelecionada);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -95,15 +90,6 @@ public class Telapesquisa {
         } catch ( IOException | ParseException e){
             System.out.println("Erro ao buscar letra");
         }
-    }
-
-    @FXML
-    void initialize() {
-        assert ScrollBar != null : "fx:id=\"ScrollBar\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
-        assert barraPesquisa != null : "fx:id=\"barraPesquisa\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
-        assert buscar != null : "fx:id=\"buscar\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
-        assert listaDeMusicas != null : "fx:id=\"listaDeMusicas\" was not injected: check your FXML file 'Telapesquisa.fxml'.";
-
     }
 
 }

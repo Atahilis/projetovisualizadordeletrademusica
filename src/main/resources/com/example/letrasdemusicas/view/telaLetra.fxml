@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.telaLetra">
+   <children>
+      <TextArea fx:id="letrasArea" editable="false" layoutX="94.0" layoutY="105.0" prefHeight="524.0" prefWidth="650.0" />
+      <ScrollBar layoutX="790.0" layoutY="3.0" orientation="VERTICAL" prefHeight="663.0" prefWidth="22.0" />
+      <ImageView fx:id="capa" fitHeight="64.0" fitWidth="64.0" layoutX="138.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <Hyperlink fx:id="spotifyLink" layoutX="648.0" layoutY="56.0" onAction="#spotifyLinkAction" text="Spotify" textFill="#e44474">
+         <font>
+            <Font name="Bookman Old Style" size="16.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="MusicaArtista" layoutX="210.0" layoutY="20.0" prefHeight="71.0" prefWidth="356.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="Voltar" layoutX="654.0" layoutY="635.0" mnemonicParsing="false" onAction="#VoltarAction" text="Voltar" />
+   </children>
+</AnchorPane>
