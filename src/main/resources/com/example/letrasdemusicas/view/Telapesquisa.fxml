@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,16 +10,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Telapesquisa">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Telapesquisa">
    <top>
       <AnchorPane prefHeight="87.0" prefWidth="1024.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="barraPesquisa" layoutX="192.0" layoutY="21.0" onAction="#barraPesquisaAction" prefHeight="50.0" prefWidth="689.0" promptText="Qual a sua música favorita? ">
+            <TextField layoutX="192.0" layoutY="21.0" prefHeight="50.0" prefWidth="689.0" promptText="Qual a sua música favorita? ">
                <font>
                   <Font name="Microsoft JhengHei UI Light" size="18.0" />
                </font>
             </TextField>
-            <JFXButton fx:id="buscar" buttonType="RAISED" layoutX="886.0" layoutY="20.0" onAction="#buscarAction" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: white;" text="BUSCAR" textOverrun="CLIP">
+            <JFXButton buttonType="RAISED" layoutX="886.0" layoutY="20.0" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: white;" text="BUSCAR" textOverrun="CLIP">
                <font>
                   <Font name="Microsoft JhengHei UI" size="17.0" />
                </font>
@@ -31,7 +32,10 @@
          </children>
       </AnchorPane>
    </top>
+   <right>
+      <ScrollBar orientation="VERTICAL" prefHeight="678.0" prefWidth="24.0" BorderPane.alignment="CENTER" />
+   </right>
    <center>
-      <ListView fx:id="listaDeMusicas" onMouseClicked="#clicar" prefHeight="200.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

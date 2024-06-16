@@ -81,10 +81,10 @@ public class Telapesquisa {
         try{
             new MusicaDao().pegarLetra(musicaSelecionada);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/TelaLetra.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/telaLetra.fxml"));
             Parent root = loader.load();
 
-            TelaLetra telaLetra = loader.getController();
+            telaLetra telaLetra = loader.getController();
             telaLetra.iniciar(musicaSelecionada);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -19,6 +19,9 @@ import java.io.IOException;
 public class Login {
 
         @FXML
+        private Button cadastro;
+
+        @FXML
         private Button login;
 
         @FXML
@@ -31,12 +34,30 @@ public class Login {
         private ImageView logoImageView;
 
         @FXML
+        void cadastroAction(ActionEvent event) throws IOException {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/Cadastro.fxml"));
+           Parent root = loader.load();
+           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           Scene scene = new Scene(root);
+           stage.setScene(scene);
+
+        }
+
+        @FXML
         void loginAction(ActionEvent event) throws IOException {
         String nomeDigitado = user.getText();
         String senhaDigitada= senha.getText();
+
         UsuarioDao usuarioDao = new UsuarioDao();
-        Usuario usuario;
-        usuario = UsuarioDao.ler(nomeDigitado, senhaDigitada);
+
+        Usuario usuario = null;
+        try {
+             usuario = UsuarioDao.ler(nomeDigitado, senhaDigitada);
+
+        } catch (IOException | ArrayIndexOutOfBoundsException e){
+
+        }
+
         if (usuario != null)  {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/Telapesquisa.fxml"));
                 Parent root = loader.load();

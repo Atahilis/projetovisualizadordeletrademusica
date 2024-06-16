@@ -46,7 +46,7 @@ Cadastro {
         UsuarioDao usuarioDao = new UsuarioDao();
         usuarioDao.salvar(usuario);
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/view/Telapesquisa.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/letrasdemusicas/Cadastro.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
