@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Telapesquisa">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.letrasdemusicas.Controller.Telapesquisa">
    <top>
       <AnchorPane prefHeight="87.0" prefWidth="1024.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
          <children>
@@ -32,9 +31,6 @@
          </children>
       </AnchorPane>
    </top>
-   <right>
-      <ScrollBar orientation="VERTICAL" prefHeight="678.0" prefWidth="24.0" BorderPane.alignment="CENTER" />
-   </right>
    <center>
       <ListView fx:id="listaDeMusicas" onMouseClicked="#clicar" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
